@@ -1,0 +1,436 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Edna Kobo | Digital CV Dashboard</title>
+
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700;800&display=swap"
+        rel="stylesheet">
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --accent: #41ba09;
+            --accent-purple: #7c3aed;
+            --bg-dark: #05070a;
+            --card-bg: rgba(15, 23, 42, 0.75);
+            --border: rgba(255, 255, 255, 0.1);
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)),
+                url('images/pexels-pixabay-416320.jpg') no-repeat center center fixed;
+            background-size: cover;
+            color: #f1f5f9;
+            scroll-behavior: smooth;
+        }
+
+        .premium-card {
+            background: var(--card-bg);
+            border: 1px solid var(--border);
+            backdrop-filter: blur(12px);
+            border-radius: 24px;
+            padding: 25px;
+            transition: all 0.4s ease;
+            height: 100%;
+        }
+
+        .premium-card:hover {
+            border-color: var(--accent);
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .objective-box {
+            background: linear-gradient(145deg, rgba(65, 186, 9, 0.05), rgba(124, 58, 237, 0.05));
+            border: 1px solid var(--border);
+            border-radius: 30px;
+            padding: 40px;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .timeline-container {
+            border-left: 2px solid rgba(65, 186, 9, 0.2);
+            padding-left: 35px;
+            position: relative;
+            margin-left: 10px;
+        }
+
+        .timeline-dot {
+            position: absolute;
+            left: -44px;
+            top: 5px;
+            width: 18px;
+            height: 18px;
+            background: var(--accent);
+            border-radius: 50%;
+            box-shadow: 0 0 15px var(--accent);
+            z-index: 10;
+            border: 4px solid #0f172a;
+        }
+        
+
+        .section-accent-header {
+            color: #fff;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            font-size: 0.75rem;
+            font-weight: 800;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .section-accent-header::after {
+            content: "";
+            flex-grow: 1;
+            height: 1px;
+            background: linear-gradient(to right, var(--accent), transparent);
+        }
+
+        .project-tag {
+            background: rgba(255, 255, 255, 0.05);
+            color: var(--accent);
+            font-size: 0.65rem;
+            padding: 5px 12px;
+            border-radius: 50px;
+            border: 1px solid rgba(65, 186, 9, 0.3);
+            font-weight: 700;
+        }
+
+        .skill-bar-container {
+            margin-bottom: 15px;
+        }
+
+        .skill-info {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.7rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+            color: #cbd5e1;
+        }
+
+        .skill-progress {
+            height: 6px;
+            background: rgba(255, 255, 255, 0.05);
+            border-radius: 10px;
+            overflow: hidden;
+        }
+
+        .skill-fill {
+            height: 100%;
+            background: linear-gradient(90deg, var(--accent), var(--accent-purple));
+            border-radius: 10px;
+        }
+
+        .strength-badge {
+            background: rgba(124, 58, 237, 0.1);
+            border: 1px solid rgba(124, 58, 237, 0.3);
+            border-radius: 12px;
+            padding: 12px;
+            margin-bottom: 10px;
+            transition: 0.3s;
+        }
+
+        .strength-badge:hover {
+            background: rgba(124, 58, 237, 0.2);
+        }
+
+        .cert-img-wrap img {
+            width: 100%;
+            border-radius: 12px;
+            border: 1px solid var(--border);
+        }
+    </style>
+</head>
+
+<body style="padding-top: 60px;">
+
+    <div class="container pb-5">
+
+        <div class="objective-box">
+            <h1 class="display-4 fw-800 mb-0">EDNA <span style="color: var(--accent);">KOBO</span></h1>
+            <p class="text-uppercase small mb-4" style="letter-spacing: 4px; color: var(--accent-purple);">
+                Data Analyst
+            </p>
+
+            <div
+                class="badge bg-success bg-opacity-10 text-success mb-3 p-2 px-4 border border-success border-opacity-25 rounded-pill">
+                EXECUTIVE SUMMARY
+            </div>
+
+            <p class="lead text-secondary mx-auto" style="max-width: 850px; font-size: 1.05rem; line-height: 1.7;">
+                Data Analyst focused on identifying what drives sales performance, operational efficiency, and customer
+                outcomes. Worked with operational, survey, and sales opportunity data to uncover performance gaps,
+                improve visibility into business processes, and support decision-making through SQL, Python, and Power
+                BI. Built reporting and analytical solutions across telecommunications and sales environments, including
+                win/loss analysis and customer feedback insights.
+            </p>
+        </div>
+
+        <div class="row g-4">
+
+            <!-- PROFILE + SKILLS -->
+            <div class="col-lg-4">
+                <div class="premium-card">
+
+                    <h6 class="section-accent-header mb-4">Analytical Capabilities</h6>
+
+                    <div class="skill-bar-container">
+                        <div class="skill-info">
+                            <span>Sales & Performance Analysis</span>
+                        </div>
+
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 90%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar-container">
+                        <div class="skill-info">
+                            <span>Operational Reporting & Insights</span>
+                        </div>
+
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 88%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar-container">
+                        <div class="skill-info">
+                            <span>Data Cleaning & Exploration</span>
+                        </div>
+
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+
+                    <div class="skill-bar-container">
+                        <div class="skill-info">
+                            <span>Dashboard & KPI Visualisation</span>
+                        </div>
+
+                        <div class="skill-progress">
+                            <div class="skill-fill" style="width: 85%;"></div>
+                        </div>
+                    </div>
+                    <h6 class="section-accent-header mt-5 mb-3">Core Tools</h6>
+
+                    <div class="d-flex flex-wrap gap-2">
+                        <span class="project-tag">SQL</span>
+                        <span class="project-tag">Power BI</span>
+                        <span class="project-tag">Excel</span>
+                        <span class="project-tag">Python </span>
+                        <span class="project-tag">Pandas</span>
+                        <span class="project-tag">VS Code</span>
+                        <span class="project-tag">GitHub</span>
+                        <span class="project-tag">Data Visualization</span>
+                        <span class="project-tag">Reporting</span>
+                        <span class="project-tag">Data Cleaning</span>
+                        <span class="project-tag">MySQL</span>
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- JOURNEY -->
+            <div class="col-lg-8">
+                <div class="premium-card">
+
+                    <h6 class="section-accent-header mb-5">Professional Journey</h6>
+
+                    <div class="timeline-container">
+
+                        <div class="mb-5 position-relative">
+                            <div class="timeline-dot"></div>
+                            <h5 class="fw-bold mb-1">Sales Support Intern</h5>
+                            <p class="text-success small fw-bold mb-2">
+                                Telkom – Openserve | 2024 — Present
+                            </p>
+                            <p class="small text-secondary">
+                                Managed quotation processing and LMID site verification within a high-volume
+                                telecommunications environment, ensuring service locations and operational data were
+                                accurately validated. Analysed customer survey feedback and operational reporting data
+                                in Power BI to identify service performance gaps, support regional visibility, and
+                                improve decision-making across teams.
+                            </p>
+                        </div>
+
+                        <div class="mb-4 position-relative">
+                            <div class="timeline-dot"></div>
+                            <h5 class="fw-bold mb-1 text-secondary">Student Intern – Data Science</h5>
+                            <p class="text-secondary small fw-bold mb-2">BCX | 2023</p>
+                            <p class="small text-secondary">
+                                Built a win/loss analysis dashboard to evaluate sales opportunity outcomes and identify
+                                factors influencing deal performance. Analysed opportunity pipeline data that revealed a
+                                47.49% closed-won rate and highlighted patterns linked to a 20.53% reduction in
+                                opportunity loss.
+                            </p>
+                        </div>
+
+                    </div>
+
+                    <h6 class="section-accent-header mb-5">Academic Background</h6>
+
+                    <div class="timeline-container">
+
+                        <div class="mb-4 position-relative">
+                            <div class="timeline-dot"
+                                style="background: var(--accent-purple); box-shadow: 0 0 15px var(--accent-purple);">
+                            </div>
+                            <h5 class="fw-bold mb-1">Data Science Program (NQF 5)</h5>
+                            <p class="text-primary small fw-bold mb-0">Explore AI Academy | 2023</p>
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+
+            <!-- PROJECTS + STRENGTHS -->
+            <div class="col-lg-12">
+                <div class="premium-card">
+
+                    <div class="row">
+
+                        <!-- LEFT SIDE : PROJECTS -->
+                        <div class="col-md-7 border-end border-white border-opacity-10">
+
+                            <h6 class="section-accent-header mb-4">Key Analytical Projects</h6>
+
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="fw-bold text-white">Billing & Revenue Analytics (SaaS)</span>
+                                    <i class="bi bi-currency-dollar text-success"></i>
+                                </div>
+
+                                <p class="small text-secondary">
+                                    Analysed subscription billing and revenue data to identify churn drivers,
+                                    revenue leakage, and factors impacting revenue stability. Built insights
+                                    focused on improving visibility into customer retention and recurring
+                                    revenue performance.
+                                </p>
+                            </div>
+
+                            <div class="mb-4">
+                                <div class="d-flex justify-content-between align-items-center mb-2">
+                                    <span class="fw-bold text-white">
+                                        Creative Performance & Digital Marketing Analytics
+                                    </span>
+                                    <i class="bi bi-bar-chart-line text-warning"></i>
+                                </div>
+
+                                <p class="small text-secondary">
+                                    Evaluated digital campaign and user engagement data to identify
+                                    high-performing creatives, optimise marketing funnel performance,
+                                    and improve understanding of conversion behaviour across campaigns.
+                                </p>
+                            </div>
+
+                        </div>
+
+                        <!-- RIGHT SIDE : STRENGTHS -->
+                        <div class="col-md-5 ps-md-4 mt-4 mt-md-0">
+
+                            <h6 class="section-accent-header mb-4">How I Support Decision-Making</h6>
+
+                            <div class="strength-badge">
+                                <div class="d-flex align-items-center gap-3">
+                                    <i class="bi bi-search text-accent-purple fs-5"></i>
+
+                                    <div>
+                                        <div class="small fw-bold text-white">
+                                            Data Analysis & Insight Generation
+                                        </div>
+
+                                        <div style="font-size: 0.7rem;" class="text-secondary">
+                                            Identifying patterns and translating data into actionable
+                                            business insights.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="strength-badge">
+                                <div class="d-flex align-items-center gap-3">
+                                    <i class="bi bi-graph-up-arrow text-accent-purple fs-5"></i>
+
+                                    <div>
+                                        <div class="small fw-bold text-white">
+                                            Performance Reporting & Visualisation
+                                        </div>
+
+                                        <div style="font-size: 0.7rem;" class="text-secondary">
+                                            Building interactive Power BI dashboards for performance
+                                            tracking and reporting.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="strength-badge">
+                                <div class="d-flex align-items-center gap-3">
+                                    <i class="bi bi-chat-dots text-accent-purple fs-5"></i>
+
+                                    <div>
+                                        <div class="small fw-bold text-white">
+                                            Business Communication
+                                        </div>
+
+                                        <div style="font-size: 0.7rem;" class="text-secondary">
+                                            Translating technical findings into simple insights
+                                            for non-technical stakeholders.
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+            </div>
+            <!-- CERTIFICATE -->
+            <div class="col-lg-12">
+                <div class="premium-card text-center">
+
+                    <h6 class="section-accent-header d-inline-block mb-3">Academic Validation</h6>
+
+                    <div class="alert alert-warning py-2 border-0 bg-warning bg-opacity-10 text-warning x-small mb-4"
+                        style="border-radius: 12px; font-size: 0.7rem;">
+                        <i class="bi bi-info-circle me-1"></i> Certified training completed through ExploreAI Data
+                        Science Program.
+                    </div>
+
+                    <div class="cert-img-wrap mb-4 mx-auto" style="max-width: 600px;">
+                        <img src="images/Edna_Mosima_Kobo_crt_7734_1701954185-1.png" class="shadow"
+                            alt="ExploreAI Certificate">
+                    </div>
+
+                    <span
+                        class="badge bg-success bg-opacity-10 text-success border border-success border-opacity-20 px-4 py-2">
+                        CERTIFIED DATA SCIENTIST
+                    </span>
+
+                </div>
+            </div>
+
+        </div>
+
+        <footer class="text-center py-5 opacity-50 small">
+            &copy; 2026 Edna Kobo Portfolio
+        </footer>
+
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

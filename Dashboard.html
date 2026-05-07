@@ -1,0 +1,535 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <title>Dashboard Showcase | Edna Kobo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap & Icons -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+
+  <style>
+    :root {
+      --accent: #41ba09;
+      --bg: #1f2937;
+      --card-bg-tint: rgba(40, 40, 40, 0.35);
+    }
+
+    body {
+      background: var(--bg);
+      color: #fff;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+    }
+
+    .text-accent {
+      color: var(--accent);
+    }
+
+    /* FILTER BUTTONS */
+    .filter-btn {
+      background: transparent;
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      padding: 8px 18px;
+      border-radius: 25px;
+      margin: 5px;
+      transition: 0.22s;
+      font-size: 0.85rem;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      font-weight: 600;
+      cursor: pointer;
+    }
+
+    .filter-btn.active,
+    .filter-btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* DASHBOARD CARD (consolidated) */
+    .dashboard-card {
+      position: relative;
+      overflow: hidden;
+      border-radius: 18px;
+      padding: 24px;
+      height: 100%;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+      transition: transform 0.35s ease, box-shadow 0.35s ease;
+      background: var(--card-bg-tint);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      z-index: 1;
+    }
+
+    .dashboard-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 16px 40px rgba(38, 202, 5, 0.35);
+    }
+
+    /* Background image (single authoritative rule) */
+    .card-bg {
+      position: absolute;
+      inset: 0;
+      background-size: cover;
+      background-position: center;
+      opacity: 0.50;
+      /* clearer image */
+      filter: blur(1px);
+      /* subtle softening */
+      z-index: -2;
+      /* behind overlay and content */
+      pointer-events: none;
+    }
+
+    /* Subtle overlay between image and content */
+    .dashboard-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(to bottom, rgba(0, 0, 0, 0.18), rgba(0, 0, 0, 0.35));
+      z-index: -1;
+      pointer-events: none;
+    }
+
+    .dashboard-tag {
+      display: inline-block;
+      font-size: 0.7rem;
+      padding: 4px 12px;
+      border-radius: 20px;
+      background: rgba(65, 186, 9, 0.12);
+      color: var(--accent);
+      margin-bottom: 12px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .dashboard-card h5 {
+      position: relative;
+      z-index: 1;
+      margin-bottom: 6px;
+    }
+
+    .dashboard-card p {
+      font-size: 0.85rem;
+      color: rgba(255, 255, 255, 0.92);
+      position: relative;
+      z-index: 1;
+      margin-bottom: 12px;
+    }
+
+    .view-btn {
+      margin-top: 12px;
+      font-size: 0.85rem;
+      position: relative;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none !important;
+    }
+
+    /* Disabled buttons - semantic + visual */
+    .btn.disabled,
+    .btn[disabled] {
+      opacity: 0.6;
+      border-color: #666;
+      color: #aaa !important;
+      pointer-events: none;
+    }
+
+    /* Custom button look */
+    .custom-btn {
+      border: 1px solid var(--accent);
+      color: var(--accent);
+      background: transparent;
+      transition: 0.22s;
+      border-radius: 5px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .custom-btn:hover {
+      background: var(--accent);
+      color: #000;
+    }
+
+    /* layout helpers */
+    .d-flex.gap-2.flex-wrap {
+      position: relative;
+      z-index: 1;
+    }
+
+    /* Responsive performance tip: hide heavy footer video on small screens */
+    @media (max-width: 768px) {
+      footer video {
+        display: none;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- HEADER -->
+  <section class="py-5 text-center">
+    <div class="container">
+
+      <h1 class="text-accent mb-3">Project Portfolio</h1>
+
+    
+      <!-- FILTERS -->
+      <div> 
+        <button type="button" class="filter-btn active" onclick="filterDashboards('all', this)"> All Projects
+        </button> 
+
+        <button type="button" class="filter-btn" onclick="filterDashboards('sales', this)"> Revenue & Sales
+          Analytics 
+        </button> 
+
+        <button type="button" class="filter-btn" onclick="filterDashboards('marketing', this)">
+          Marketing & Engagement </button> 
+
+        <button type="button" class="filter-btn"
+          onclick="filterDashboards('energy', this)"> Energy & Utilities 
+        </button> </div>
+  </section>
+
+  <!-- PROJECT GRID -->
+  <section class="pb-5">
+    <div class="container">
+
+      <div class="row g-4">
+
+        <!-- BCX PROJECT -->
+        <div class="col-md-6 dashboard-item sales">
+
+          <div class="dashboard-card">
+
+            <div class="card-bg"
+              style="background-image:url('images/Multiple Unhealthy Traits Linked With Earlier Heart Attack And Stroke - WorldHealth_net.jpg');"
+              aria-hidden="true">
+            </div>
+
+            <span class="dashboard-tag">
+              Sales Performance Analytics
+            </span>
+
+            <h5>
+              Opportunity Win vs Loss Analysis
+            </h5>
+
+            <p>
+              Built a Power BI dashboard analysing sales opportunity outcomes to identify
+              patterns influencing won and lost deals. The analysis highlighted a 47.49%
+              closed-won rate and uncovered factors linked to a 20.53% reduction in
+              opportunity loss.
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+
+              <button type="button" class="btn custom-btn view-btn disabled" aria-disabled="true" disabled>
+                Confidential (Client Data Restricted) <i class="bi-lock-fill ms-1"></i>
+              </button>
+              <a href="https://github.com/EdnaM06/BCX-Opportunity-Win-Vs-Loss-Insights.git" target="_blank"
+                rel="noopener noreferrer" class="btn custom-btn view-btn">
+                View on GitHub <i class="bi-github ms-1"></i>
+              </a>
+
+            </div>
+
+          </div>
+        </div>
+
+        <!-- SAAS PROJECT -->
+        <div class="col-md-6 dashboard-item sales">
+
+          <div class="dashboard-card">
+
+            <div class="card-bg" style="background-image:url('images/saas.jpg');" aria-hidden="true">
+            </div>
+
+            <span class="dashboard-tag">
+              SaaS Revenue Analytics
+            </span>
+
+            <h5>
+              Billing & Revenue Analytics
+            </h5>
+
+            <p>
+              Analysed subscription billing and recurring revenue data to identify churn
+              drivers, revenue leakage, and customer retention patterns. Built reporting
+              insights focused on improving visibility into monthly revenue performance
+              and subscription behaviour.
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+
+              <button type="button" class="btn custom-btn view-btn disabled" aria-disabled="true" disabled>
+
+                Project Preview Coming Soon
+                <i class="bi-clock-history ms-1"></i>
+
+
+              </button>
+              <a href="https://github.com/EdnaM06/Saas-Billing-Analytics.git" target="_blank" rel="noopener noreferrer"
+                class="btn custom-btn view-btn">
+                View on GitHub <i class="bi-github ms-1"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- CREATIVE PERFORMANCE PROJECT -->
+        <div class="col-md-6 dashboard-item marketing">
+
+          <div class="dashboard-card">
+
+            <div class="card-bg" style="background-image:url('images/marketing.jpg');" aria-hidden="true">
+            </div>
+
+            <span class="dashboard-tag">
+              Creative Performance & Digital Marketing Analytics 
+            </span>
+
+            <h5>
+              Creative Performance & Digital Marketing Analytics
+            </h5>
+
+            <p>
+              Evaluated campaign engagement and conversion data to identify
+              high-performing creatives, analyse audience behaviour,
+              and improve visibility into marketing funnel performance
+              across digital campaigns.
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+
+              <button type="button" class="btn custom-btn view-btn disabled" aria-disabled="true" disabled>
+
+                Project Preview Coming Soon
+                <i class="bi-clock-history ms-1"></i>
+
+              </button>
+              <a href="https://github.com/EdnaM06/Creative-performance-analysis.git" target="_blank"
+                rel="noopener noreferrer" class="btn custom-btn view-btn">
+                View on GitHub <i class="bi-github ms-1"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- EMAIL PERFORMANCE PROJECT -->
+        <div class="col-md-6 dashboard-item marketing">
+
+          <div class="dashboard-card">
+
+            <div class="card-bg" style="background-image:url('images/email.jpg');" aria-hidden="true">
+            </div>
+
+            <span class="dashboard-tag">
+              Email Campaign Performance Analysis
+            </span>
+
+            <h5>
+              Email Campaign Performance Analysis
+            </h5>
+
+            <p>
+              Analysed email campaign performance data to evaluate open rates,
+              click-through behaviour, customer engagement trends,
+              and conversion performance. Identified patterns influencing
+              campaign effectiveness and audience interaction.
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+
+              <button type="button" class="btn custom-btn view-btn disabled" aria-disabled="true" disabled>
+
+                Project Preview Coming Soon
+                <i class="bi-clock-history ms-1"></i>
+
+              </button>
+              <a href="https://github.com/EdnaM06/email-growth-marketing.git" target="_blank" rel="noopener noreferrer"
+                class="btn custom-btn view-btn">
+                View on GitHub <i class="bi-github ms-1"></i>
+              </a>
+
+            </div>
+          </div>
+        </div>
+
+        <!-- ESKOM PROJECT -->
+        <div class="col-md-6 dashboard-item energy">
+
+          <div class="dashboard-card">
+
+            <div class="card-bg" style="background-image:url('images/download (7).jpg');" aria-hidden="true">
+            </div>
+
+            <span class="dashboard-tag">
+              Energy & Utilities Analytics
+            </span>
+
+            <h5>
+              Eskom Performance Dashboard
+            </h5>
+
+            <p>
+              Developed an interactive Power BI dashboard during the ExploreAI Data Science
+              programme to analyse electricity demand trends, operational performance,
+              and energy distribution metrics using public utility datasets.
+            </p>
+
+            <div class="d-flex gap-2 flex-wrap">
+
+              <button type="button" class="btn custom-btn view-btn" data-bs-toggle="modal"
+                data-bs-target="#projectModal" data-img="images/logos/eskom.png" onclick="updateModal(this)">
+
+                View Dashboard
+                <i class="bi-image ms-1"></i>
+
+              </button>
+              <a href="https://github.com/EdnaM06/ExploreAI-Program-Projects/blob/8ce0a82d93fbf0cdf36a46a9b14de2d87f0bdb0b/Eskom-Visualisation4DS_Dashboard.pbix"
+                target="_blank" rel="noopener noreferrer" class="btn custom-btn view-btn"
+                title="Power BI file (.pbix) - click View raw on GitHub to download">
+
+                View Power BI Project on GitHub <i class="bi-github ms-1"></i>
+
+              </a>
+
+              <div class="alert alert-warning mt-2 p-2" style="font-size:0.75rem; border-radius:10px;">
+                ⚠ <b>Power BI file (pbix)</b><br>
+                Click <b>“View raw”</b> on GitHub to download and open in Power BI Desktop
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- FOOTER -->
+  <footer class="site-footer section-padding position-relative" style="background-color:#000;">
+    <video autoplay muted loop playsinline
+      style="position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;z-index:1;">
+      <source src="images/Main Page/12888892_1920_1080_30fps.mp4" type="video/mp4">
+    </video>
+    <div style="position:absolute;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.85);z-index:2;"></div>
+
+    <div class="container position-relative" style="z-index:3; color:#fff;">
+      <div class="row justify-content-center text-center" style="padding-top: 60px;">
+
+        <div class="col-lg-4 col-md-6 mb-4 mb-lg-0">
+          <em class="d-block mb-2" style="color:#aaa;">Where to find Me?</em>
+          <strong><i class="bi-geo-alt me-2"></i> South Africa</strong>
+          <ul class="list-inline mt-3">
+            <li class="list-inline-item">
+              <a href="https://calendar.app.google/y3SxkCmhb1qhMNm19" target="_blank" rel="noopener noreferrer"
+                class="bi-calendar-check" style="color:var(--accent); font-size:1.2rem;"></a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="https://www.linkedin.com/in/edna-kobo" target="_blank" rel="noopener noreferrer"
+                class="bi-linkedin" style="color:var(--accent); font-size:1.2rem;"></a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="https://github.com/EdnaM06" target="_blank" rel="noopener noreferrer" class="bi-github"
+                style="color:var(--accent); font-size:1.2rem;"></a>
+            </li>
+          </ul>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4 mb-lg-0">
+          <em class="d-block mb-2" style="color:#aaa;">Book Free Consultation</em>
+          <p class="mb-1"><a href="https://calendar.app.google/y3SxkCmhb1qhMNm19" target="_blank"
+              rel="noopener noreferrer" style="color:var(--accent);">Book Free</a></p>
+          <p class="mb-0"><strong>Email:</strong> <a href="mailto:ednamosima86@gmail.com"
+              style="color:var(--accent);">ednamosima86@gmail.com</a></p>
+        </div>
+
+        <div class="col-lg-5 col-md-12">
+          <em class="d-block mb-2" style="color:#aaa;">Working Hours</em>
+          <ul class="list-unstyled mb-0">
+            <li>Monday - Friday: <strong>9:00 - 17:00</strong></li>
+            <li>Saturday: <strong>Closed</strong></li>
+            <li>Sunday: <strong>Closed</strong></li>
+          </ul>
+        </div>
+
+        <div class="col-12 text-center mt-4">
+          <p class="mb-1" style="font-size:0.75rem;">&copy; 2026 Edna Kobo. All Rights Reserved.</p>
+        </div>
+
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal -->
+  <div class="modal fade" id="projectModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content" style="background: #1f2937; border: 1px solid var(--accent);">
+        <div class="modal-header border-0 pb-0">
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body text-center p-4">
+          <img src="" id="modalImage" class="img-fluid rounded shadow-lg" alt="Project Preview">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script>
+    // Filter dashboards by category
+    function filterDashboards(category, el) {
+      const items = document.querySelectorAll('.dashboard-item');
+      const buttons = document.querySelectorAll('.filter-btn');
+
+      buttons.forEach(btn => btn.classList.remove('active'));
+      if (el) el.classList.add('active');
+
+      items.forEach(item => {
+        if (category === 'all' || item.classList.contains(category)) {
+          item.classList.remove('hidden');
+        } else {
+          item.classList.add('hidden');
+        }
+      });
+    }
+
+    // Update modal image src (used by View Image buttons)
+    function updateModal(btn) {
+      const imgSrc = btn.getAttribute('data-img');
+      const modalImage = document.getElementById('modalImage');
+      if (modalImage && imgSrc) {
+        modalImage.src = imgSrc;
+        modalImage.alt = 'Preview: ' + imgSrc.split('/').pop();
+      }
+    }
+
+    // Optional: Ensure modal image clears when closed (small cleanup)
+    document.addEventListener('hidden.bs.modal', function (event) {
+      if (event.target && event.target.id === 'projectModal') {
+        const modalImage = document.getElementById('modalImage');
+        if (modalImage) modalImage.src = '';
+      }
+    });
+  </script>
+
+  <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+
+</html>

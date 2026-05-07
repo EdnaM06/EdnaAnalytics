@@ -1,0 +1,1444 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Edna Kobo - BI Analyst Portfolio</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Bootstrap & Icons -->
+  <link href="css/bootstrap.min.css" rel="stylesheet">
+  <link href="css/bootstrap-icons.css" rel="stylesheet">
+
+  <!-- Swiper.js -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
+  <!-- Vegas.js -->
+  <link href="css/vegas.min.css" rel="stylesheet">
+
+  <!-- Custom CSS -->
+  <style>
+    /* ================= RESET & GLOBAL ================= */
+    *,
+    *::before,
+    *::after {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      overflow-x: hidden;
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #1f2937;
+      color: #fff;
+      overflow-x: hidden;
+    }
+
+    img,
+    video,
+    iframe {
+      max-width: 100%;
+      height: auto;
+      display: block;
+    }
+
+    button,
+    .custom-btn {
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
+
+    /* ================= BUTTONS ================= */
+    .custom-btn {
+      background-color: #30a80c;
+      border: none;
+      border-radius: 8px;
+      padding: 10px 20px;
+      color: #fff;
+      font-weight: 600;
+    }
+
+    .custom-btn:hover {
+      background-color: #195e04;
+      color: #fff;
+    }
+
+    .text-accent {
+      color: #41ba09;
+    }
+
+    .section-padding {
+      padding: 80px 0;
+    }
+
+    /* ================= NAVBAR ================= */
+    .navbar {
+      position: relative;
+      z-index: 2000;
+    }
+
+    @media (max-width: 991px) {
+      .navbar-collapse {
+        background: rgba(0, 0, 0, 0.95);
+        padding: 1rem;
+        border-radius: 12px;
+      }
+
+      .navbar-nav .nav-link {
+        padding: .6rem 0;
+      }
+    }
+
+    /* ================= HERO SECTION ================= */
+    .hero-section {
+      background: url('images/DATA ANALYST COVER (1).png') center/cover no-repeat;
+      min-height: 100vh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      position: relative;
+      padding: 60px 20px;
+    }
+
+    .hero-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.25);
+      z-index: 1;
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 2;
+      background: rgba(0, 0, 0, 0.25);
+      padding: 30px 25px;
+      border-radius: 12px;
+      max-width: 900px;
+      width: 100%;
+      text-align: center;
+    }
+
+    .hero-text h1 {
+      font-size: 3rem;
+      line-height: 1.2;
+      margin-bottom: 15px;
+    }
+
+    .hero-text h3 {
+      font-size: 1.8rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-text p {
+      font-size: 1rem;
+      margin-bottom: 20px;
+    }
+
+    .hero-text .custom-btn {
+      margin: 5px 10px 0 0;
+    }
+
+    /* Responsive hero */
+    @media (max-width: 1200px) {
+      .hero-text h1 {
+        font-size: 2.5rem;
+      }
+
+      .hero-text h3 {
+        font-size: 1.5rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      .hero-section {
+        min-height: auto;
+      }
+
+      .hero-text h1 {
+        font-size: 2rem;
+      }
+
+      .hero-text h3 {
+        font-size: 1.2rem;
+      }
+
+      .hero-text p {
+        font-size: 0.9rem;
+      }
+
+      .hero-content {
+        padding: 20px 15px;
+      }
+    }
+
+    /* ================= ABOUT SECTION ================= */
+    .about-glass-card {
+      background: rgba(30, 41, 59, 0.7);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 40px;
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+    }
+
+    /* ABOUT VIDEO — STATIC (NO BOUNCE / NO TILT) */
+    .about-video-container {
+      position: relative;
+      border-radius: 24px;
+      overflow: hidden;
+      transform: none !important;
+      transition: none !important;
+    }
+
+    .about-video-container:hover {
+      transform: none !important;
+    }
+
+    .about-video-container video {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+    }
+
+    /* ================= STATS ================= */
+    .stat-pill {
+      background: rgba(65, 186, 9, 0.1);
+      border: 1px solid rgba(65, 186, 9, 0.3);
+      border-radius: 50px;
+      padding: 5px 15px;
+      font-size: 0.85rem;
+      color: #41ba09;
+      display: inline-block;
+      margin-bottom: 15px;
+    }
+
+    /* ... keep your global/hero/about styles the same ... */
+
+    /* ================= SKILLS ================= */
+    .swiper {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      height: auto;
+      display: flex;
+      justify-content: center;
+      cursor: grab;
+    }
+
+    .skill-card-new {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 20px;
+      padding: 30px;
+      min-height: 280px;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    .skill-card-new:hover {
+      transform: translateY(-12px);
+      border-color: #41ba09;
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3);
+    }
+
+    .icon-box {
+      width: 60px;
+      height: 60px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 20px;
+      font-size: 28px;
+    }
+
+    /* All Icon Colors Fixed */
+    .icon-python {
+      background: rgba(23, 232, 190, 0.1);
+      color: #17e8be;
+    }
+
+    .icon-sql {
+      background: rgba(210, 12, 228, 0.1);
+      color: #d20ce4;
+    }
+
+    .icon-bi {
+      background: rgba(242, 200, 15, 0.1);
+      color: #f2c80f;
+    }
+
+    .icon-excel {
+      background: rgba(65, 186, 9, 0.1);
+      color: #41ba09;
+    }
+
+    .icon-ml {
+      background: rgba(255, 159, 67, 0.1);
+      color: #ff9f43;
+    }
+
+    .icon-etl {
+      background: rgba(255, 107, 107, 0.1);
+      color: #ff6b6b;
+    }
+
+    .icon-stats {
+      background: rgba(72, 219, 251, 0.1);
+      color: #48dbfb;
+    }
+
+    .icon-story {
+      background: rgba(29, 209, 161, 0.1);
+      color: #1dd1a1;
+    }
+
+    /* Swiper Container Fixes */
+    .swiper {
+      width: 100%;
+      padding-top: 20px;
+      padding-bottom: 50px;
+    }
+
+    .swiper-slide {
+      height: auto;
+      /* Allows cards to stretch to the same height */
+      display: flex;
+      justify-content: center;
+      cursor: grab;
+      /* Shows user they can slide */
+    }
+
+    .swiper-slide:active {
+      cursor: grabbing;
+    }
+
+    /* Ensure pagination dots are visible */
+    .swiper-pagination-bullet {
+      background: #fff !important;
+      opacity: 0.5;
+    }
+
+    .swiper-pagination-bullet-active {
+      background: #41ba09 !important;
+      opacity: 1;
+    }
+
+
+    .swiper-slide {
+      height: auto;
+      display: flex;
+      justify-content: center;
+      cursor: grab;
+    }
+
+    /* ================= SKILLS SECTION - FIXED & ZOOMED OUT ================= */
+
+    .skills-section {
+      position: relative;
+      /* Zoomed out to 60% - adjust this number to go even smaller */
+      background: #000 url('images/DATA ANALYST COVERV2.png') center center / 100% no-repeat fixed;
+      padding: 100px 0;
+    }
+
+    /* Fix Visibility of Heading & Subtitle */
+    .skills-section h2 {
+      color: #ffffff !important;
+      font-weight: 800;
+      /* Added text-stroke and shadow for maximum visibility on bright images */
+      -webkit-text-stroke: 1px rgba(0, 0, 0, 0.5);
+      text-shadow: 0 4px 15px rgba(0, 0, 0, 1), 0 0 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 10px;
+    }
+
+    .skills-section p.text-secondary {
+      color: #ffffff !important;
+      font-weight: 600;
+      background: rgba(0, 0, 0, 0.6);
+      /* Dark "pill" background for the text */
+      display: inline-block;
+      padding: 8px 25px;
+      border-radius: 50px;
+      text-shadow: none;
+      margin-bottom: 40px;
+    }
+
+    /* 2. Fix the Slider Interaction */
+    .swiper-wrapper {
+      z-index: 10 !important;
+    }
+
+    .swiper-slide {
+      height: auto !important;
+      display: flex !important;
+      justify-content: center;
+      padding: 15px;
+      /* Space for the hover bounce effect */
+    }
+
+    /* 3. Skill Cards */
+    /* ================= SKILLS SECTION - CLEAN BLUE CARDS ================= */
+
+    .skill-card-new {
+      background: #101a2d !important;
+      /* The dark blue from your screenshot */
+      border: 1.5px solid #41ba09;
+      border-radius: 20px;
+      padding: 30px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+    }
+
+    /* THIS REMOVES THE BLACK OVAL BEHIND THE TEXT */
+    .skill-card-new p {
+      background: transparent !important;
+      /* Removes the black shade */
+      color: #ffffff !important;
+      padding: 0 !important;
+      margin: 0;
+      text-shadow: none !important;
+      /* Removes any fuzzy shadows */
+    }
+
+    /* Adjust heading color to match your screenshot's green */
+    .skill-card-new h5 {
+      color: #41ba09 !important;
+      font-weight: 700;
+      margin-bottom: 15px;
+    }
+
+    /* 4. Swiper pagination fix */
+    .swiper-pagination-bullet {
+      background: #fff !important;
+    }
+
+    /* ================= PROJECTS ================= */
+    #projects h2,
+    #projects p {
+      text-align: center;
+    }
+
+    .card-project {
+      background: #1e293b;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      padding: 35px;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .card-project:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+    }
+
+    .project-tag {
+      font-size: 0.7rem;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1.2px;
+      color: #41ba09;
+      margin-bottom: 15px;
+      display: flex;
+      align-items: center;
+    }
+
+    .project-tag::before {
+      content: '●';
+      margin-right: 8px;
+      font-size: 14px;
+    }
+
+    .nda-text {
+      margin-top: auto;
+      font-size: 0.9rem;
+      display: flex;
+      align-items: center;
+    }
+
+    .case-study-link {
+      color: #41ba09 !important;
+      font-weight: 600;
+      text-decoration: none;
+    }
+
+    .case-study-link:hover {
+      opacity: 0.8;
+    }
+
+    /* ================= MODAL ================= */
+    .modal-content {
+      background-color: #1e293b;
+      border: 1px solid #41ba09;
+    }
+
+    /* Custom Scrollbar for Modal Gallery */
+    .modal-body::-webkit-scrollbar {
+      width: 8px;
+    }
+
+    .modal-body::-webkit-scrollbar-track {
+      background: #0f172a;
+    }
+
+    .modal-body::-webkit-scrollbar-thumb {
+      background: #41ba09;
+      border-radius: 10px;
+    }
+
+    .modal-body img {
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+      margin-bottom: 10px;
+    }
+
+    /* ================= SWIPER ================= */
+    .swiper-button-next,
+    .swiper-button-prev {
+      display: none !important;
+    }
+
+    /* ================= FOOTER ================= */
+    .bg-dark-custom {
+      background-color: #0f172a !important;
+    }
+
+    .site-footer p,
+    .site-footer a,
+    .site-footer em {
+      font-weight: 300;
+      color: #fff;
+    }
+
+    /* Bounce effect on hover with green border */
+    .project-bounce {
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+      border: 1px solid #41ba09;
+      /* thin green border */
+      border-radius: 24px;
+      padding: 20px;
+      /* slightly smaller padding */
+      background: rgba(30, 41, 59, 0.5);
+      /* slightly transparent */
+    }
+
+    .project-bounce:hover {
+      transform: translateY(-10px);
+      box-shadow: 0 15px 25px rgba(0, 0, 0, 0.5);
+    }
+
+    /* Center all text inside cards */
+    .card-project .project-tag,
+    .card-project h3,
+    .card-project p,
+    .card-project .nda-text,
+    .card-project .case-study-link {
+      text-align: center;
+    }
+
+    /* Shorter uniform card height */
+    .card-project {
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 280px;
+      /* reduced from 360px */
+    }
+
+    /* Uniform text height */
+    .card-text-uniform {
+      min-height: 50px;
+      /* slightly shorter for compact layout */
+    }
+
+    /* Project tag style */
+    .project-tag {
+      font-size: 0.8rem;
+      font-weight: 600;
+      letter-spacing: 1px;
+      color: #41ba09;
+      margin-bottom: 12px;
+    }
+
+    /* Dashboard Theme */
+    .modal-content.dashboard-theme {
+      background-color: #0f172a;
+      /* Deeper midnight blue */
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      border-radius: 24px;
+      overflow: hidden;
+    }
+
+    /* KPI Box Styling */
+    .kpi-card {
+      background: rgba(30, 41, 59, 0.5);
+      border: 1px solid rgba(255, 255, 255, 0.05);
+      border-radius: 16px;
+      padding: 20px;
+      display: flex;
+      align-items: center;
+      gap: 15px;
+      transition: transform 0.3s ease;
+    }
+
+    .kpi-icon {
+      width: 45px;
+      height: 45px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: rgba(65, 186, 9, 0.1);
+      color: #41ba09;
+    }
+
+    .kpi-value {
+      font-size: 1.5rem;
+      font-weight: 800;
+      color: #fff;
+      margin: 0;
+    }
+
+    .kpi-label {
+      font-size: 0.7rem;
+      font-weight: 700;
+      color: #64748b;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+    }
+
+    /* Slick Footer */
+    .dashboard-footer {
+      background: rgba(15, 23, 42, 0.9);
+      border-top: 1px solid rgba(255, 255, 255, 0.05);
+      padding: 20px 30px;
+    }
+
+    .status-dot {
+      height: 8px;
+      width: 8px;
+      background-color: #41ba09;
+      border-radius: 50%;
+      display: inline-block;
+      margin-right: 8px;
+      box-shadow: 0 0 10px #41ba09;
+    }
+
+    .btn-export {
+      background: #41ba09;
+      color: white;
+      font-weight: 700;
+      border-radius: 12px;
+      padding: 10px 25px;
+      border: none;
+    }
+
+    /* Green modal dismiss button hover */
+    .modal .btn-dismiss-green {
+      background-color: #41ba09;
+      color: #fff;
+      border: none;
+      border-radius: 12px;
+      padding: 10px 25px;
+      font-weight: 700;
+      transition: background 0.3s ease, transform 0.2s ease;
+    }
+
+    .modal .btn-dismiss-green:hover {
+      background-color: #63d233;
+      /* slightly brighter green */
+      transform: translateY(-2px);
+      /* subtle lift effect */
+    }
+  </style>
+
+</head>
+
+<body>
+
+  <!-- NAVBAR (fixed + mobile-close) -->
+  <nav class="navbar navbar-expand-lg navbar-dark fixed-top navbar-custom">
+    <div class="container container-max">
+      <!-- Brand -->
+      <a class="navbar-brand" href="index.html">
+        EDNA <span style="color: var(--accent);">KOBO</span>
+      </a>
+
+      <!-- Mobile Toggle -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Menu + CTA -->
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0 align-items-lg-center">
+          <li class="nav-item"><a class="nav-link" href="#section_1">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="#section_2">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+          <li class="nav-item"><a class="nav-link" href="#projects">Projects</a></li>
+          <li class="nav-item"><a class="nav-link" href="Youtube.html">Channel</a></li>
+          <li class="nav-item"><a class="nav-link" href="Client Page.html">Partnerships</a></li>
+        </ul>
+
+        <!-- CTA Button (kept inside collapse so it stacks nicely on mobile) -->
+        <div class="ms-lg-3 mt-3 mt-lg-0">
+          <a class="btn btn-success w-100 w-lg-auto" href="Consultation.html">
+            Book Free <i class="bi bi-arrow-up-right ms-2"></i>
+          </a>
+        </div>
+      </div> <!-- /.collapse -->
+    </div> <!-- /.container -->
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero-section" id="section_1">
+    <div class="hero-overlay"></div>
+
+    <div class="container hero-content">
+      <div class="row justify-content-center align-items-center">
+
+        <div class="col-lg-7 col-md-10 col-12 text-center text-lg-start">
+          <div class="hero-text">
+
+            <!-- NAME -->
+            <h1 class="text-white mb-3">
+              Hi, I’m <span class="text-accent">Edna Kobo</span>
+            </h1>
+
+            <!-- TITLE -->
+            <h3 class="text-white mb-3">
+              Data Analyst
+            </h3>
+
+            <!-- NEW POWER STATEMENT -->
+
+            <h3 class="text-white fw-bold mb-4">
+              I help teams identify what<span class="text-accent"> drives sales </span> and performance and translate
+              <span class="text-accent"> data into actions </span>that improve
+              outcomes.</span>
+            </h3>
+
+            <!-- FOCUS AREAS -->
+            <p class="text-accent fw-bold mb-4">
+              Performance Analytics • Customer Insights • Data Storytelling
+            </p>
+
+            <!-- VALUE BULLETS -->
+            <div class="mb-4 text-white" style="font-size: 0.9rem;">
+              ✔ Turning messy data into clear insights <br>
+              ✔ Building dashboards that drive real decisions <br>
+              ✔ Translating data into business strategy
+            </div>
+
+            <!-- CTA BUTTONS -->
+            <div class="d-flex flex-wrap justify-content-center justify-content-lg-start gap-3">
+              <a class="btn custom-btn" href="CV.html">Explore More</a>
+              <a class="btn custom-btn" href="#projects">See My Work</a>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- ABOUT -->
+  <section class="about-section section-padding bg-dark-custom" id="section_2">
+    <div class="container">
+      <div class="row align-items-center">
+
+        <!-- VIDEO -->
+        <div class="col-lg-5 col-12 mb-5 mb-lg-0">
+          <div class="about-video-container shadow-lg">
+            <video autoplay loop muted playsinline>
+              <source src="images/Main Page/Blue Clean Digital Marketing Strategy Mobile Video (1).mp4"
+                type="video/mp4">
+            </video>
+            <div class="video-gradient-overlay"></div>
+          </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="col-lg-7 col-12 ps-lg-5">
+          <div class="about-glass-card">
+
+            <!-- ABOUT ME HEADING ON TOP -->
+            <h2 class="text-white fw-bold mb-3">About <span class="text-accent">Me</span></h2>
+
+            <span class="stat-pill">Data Analyst </span>
+
+            <div class="about-text text-secondary">
+
+              <p class="mb-3">
+                Most teams don’t struggle with data - they struggle with making sense of it. My journey into data
+                analytics began through
+                <strong class="text-white">ExploreAI</strong> in 2023, where I learned to transform raw data into
+                structured, actionable insights.
+              </p>
+
+              <p class="mb-3">
+                Through my experience at <strong class="text-white">BCX</strong> and my current role at
+                <strong class="text-white">Openserve (Telkom)</strong>, I’ve worked closely with sales and operational
+                data, building dashboards that highlight performance trends, risks, and opportunities for improvement.
+              </p>
+
+              <p class="mb-4">
+                I leveraged data to identify operational gaps, delivering insights that contributed to a
+                <strong class="text-white"> 20% reduction in opportunity loss rate</strong> and a
+                <strong class="text-white">47.49% closed-won rate</strong>.
+              </p>
+
+            </div>
+
+            <div class="d-flex flex-wrap align-items-center gap-4">
+              <a href="#skills" class="btn custom-btn py-3 px-5 shadow-lg">
+                Explore My Skills <i class="bi bi-arrow-down-short ms-2"></i>
+              </a>
+
+              <div class="d-none d-md-block">
+                <small class="text-muted d-block">Experience at</small>
+                <span class="fw-bold text-white" style="letter-spacing:1px;font-size:0.9rem;">
+                  BCX • OPENERVE (TELKOM) • EXPLOREAI
+                </span>
+              </div>
+            </div>
+
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+  <!-- SKILLS -->
+  <section id="skills" class="skills-section text-white">
+    <div class="container text-center">
+
+      <h2 class="fw-bold text-white mb-2">
+        Professional <span class="text-accent">Skillset</span>
+      </h2>
+
+      <div class="swiper mySwiper">
+        <div class="swiper-wrapper">
+
+          <!-- PYTHON -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-python">
+                <i class="bi bi-code-slash"></i>
+              </div>
+              <h5 class="fw-bold">Python</h5>
+              <p class="text-secondary small mb-0">
+                Data analysis, automation, EDA, and business performance insights.
+              </p>
+            </div>
+          </div>
+
+          <!-- SQL -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-sql">
+                <i class="bi bi-database-fill"></i>
+              </div>
+              <h5 class="fw-bold">SQL</h5>
+              <p class="text-secondary small mb-0">
+                Querying large datasets for SaaS billing, churn analysis, and sales performance tracking.
+              </p>
+            </div>
+          </div>
+
+          <!-- POWER BI -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-bi">
+                <i class="bi bi-bar-chart-fill"></i>
+              </div>
+              <h5 class="fw-bold">Power BI</h5>
+              <p class="text-secondary small mb-0">
+                Building dashboards for revenue analytics, opportunity tracking, and operational reporting.
+              </p>
+            </div>
+          </div>
+
+          <!-- TABLEAU -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-bi">
+                <i class="bi bi-graph-up"></i>
+              </div>
+              <h5 class="fw-bold">Tableau</h5>
+              <p class="text-secondary small mb-0">
+                Visual storytelling and KPI dashboards for business decision-making.
+              </p>
+            </div>
+          </div>
+
+          <!-- SAAS ANALYTICS -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-ml">
+                <i class="bi bi-graph-up-arrow"></i>
+              </div>
+              <h5 class="fw-bold">SaaS Analytics</h5>
+              <p class="text-secondary small mb-0">
+                Churn analysis, subscription revenue tracking, and customer retention insights.
+              </p>
+            </div>
+          </div>
+
+          <!-- MACHINE LEARNING -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-ml">
+                <i class="bi bi-cpu"></i>
+              </div>
+              <h5 class="fw-bold">Machine Learning</h5>
+              <p class="text-secondary small mb-0">
+                Predictive modelling for churn risk and performance forecasting.
+              </p>
+            </div>
+          </div>
+
+          <!-- EXCEL -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-excel">
+                <i class="bi bi-table"></i>
+              </div>
+              <h5 class="fw-bold">Excel</h5>
+              <p class="text-secondary small mb-0">
+                Advanced formulas, pivot tables, and financial + SaaS reporting models.
+              </p>
+            </div>
+          </div>
+
+          <!-- KPI REPORTING -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-bi">
+                <i class="bi bi-speedometer2"></i>
+              </div>
+              <h5 class="fw-bold">KPI Reporting</h5>
+              <p class="text-secondary small mb-0">
+                Monitoring business performance through clear and actionable KPI dashboards.
+              </p>
+            </div>
+          </div>
+
+          <!-- DATA VISUALIZATION -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-bi">
+                <i class="bi bi-bar-chart-line"></i>
+              </div>
+              <h5 class="fw-bold">Data Visualization</h5>
+              <p class="text-secondary small mb-0">
+                Transforming complex datasets into intuitive visual insights for decision-making.
+              </p>
+            </div>
+          </div>
+
+          <!-- DATA CLEANING -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-python">
+                <i class="bi bi-funnel"></i>
+              </div>
+              <h5 class="fw-bold">Data Cleaning</h5>
+              <p class="text-secondary small mb-0">
+                Preparing and structuring raw data to ensure reporting accuracy and consistency.
+              </p>
+            </div>
+          </div>
+
+          <!-- DASHBOARD DEVELOPMENT -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-etl">
+                <i class="bi bi-window-stack"></i>
+              </div>
+              <h5 class="fw-bold">Dashboard Development</h5>
+              <p class="text-secondary small mb-0">
+                Designing interactive dashboards for operational, sales, and revenue analytics.
+              </p>
+            </div>
+          </div>
+
+          <!-- DATA MANIPULATION -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-sql">
+                <i class="bi bi-arrow-left-right"></i>
+              </div>
+              <h5 class="fw-bold">Data Manipulation</h5>
+              <p class="text-secondary small mb-0">
+                Transforming and analysing datasets using SQL, Python, and Excel techniques.
+              </p>
+            </div>
+          </div>
+
+          <!-- COMMUNICATION -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-story">
+                <i class="bi bi-chat-dots"></i>
+              </div>
+              <h5 class="fw-bold">Communication</h5>
+              <p class="text-secondary small mb-0">
+                Presenting analytical insights clearly to support stakeholder understanding and action.
+              </p>
+            </div>
+          </div>
+
+          <!-- BUSINESS ANALYTICS -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-python">
+                <i class="bi bi-lightning-charge"></i>
+              </div>
+              <h5 class="fw-bold">Business Analytics</h5>
+              <p class="text-secondary small mb-0">
+                Translating data into insights for sales performance, revenue growth, and operational improvement.
+              </p>
+            </div>
+          </div>
+          <!-- PROBLEM SOLVING -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-ml">
+                <i class="bi bi-puzzle"></i>
+              </div>
+              <h5 class="fw-bold">Problem Solving</h5>
+              <p class="text-secondary small mb-0">
+                Using analytical thinking to identify business challenges and uncover actionable solutions.
+              </p> 
+            </div>
+          </div>
+
+          <!-- DATA STORYTELLING -->
+          <div class="swiper-slide">
+            <div class="skill-card-new">
+              <div class="icon-box icon-bi">
+                <i class="bi bi-chat-square-text"></i>
+              </div>
+              <h5 class="fw-bold">Data Storytelling</h5>
+              <p class="text-secondary small mb-0">
+                Communicating insights clearly to support business decisions and stakeholder reporting.
+              </p>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="swiper-pagination mt-4"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PROJECTS -->
+  <section id="projects" class="section-padding bg-dark-custom">
+    <div class="container">
+
+      <!-- Section Header -->
+      <div class="row align-items-end mb-5 text-center text-md-start">
+        <div class="col-md-8 mb-3 mb-md-0">
+          <h2 class="fw-bold text-white mb-2">Recent <span class="text-accent">Projects</span></h2>
+          <p class="text-secondary mb-0">
+        </div>
+        <div class="col-md-4 text-md-end">
+          <a href="Dashboard.html" class="text-accent fw-bold text-decoration-none">
+            View Dashboard Showcase <i class="bi bi-arrow-right ms-2"></i>
+          </a>
+        </div>
+      </div>
+
+
+      <!-- Project Cards -->
+      <div class="row g-4">
+
+        <!-- Card 1  -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card-project project-bounce text-center">
+            <div class="project-tag">Python • SQL • Maxpanel</div>
+            <h3 class="text-white fw-bold h4 mb-3">
+              SaaS Billing & Revenue Analytics
+            </h3>
+
+            <p class="text-secondary small mb-4 card-text-uniform">
+              Analyzed subscription billing, churn, and revenue performance to identify drivers of opportunity loss and
+              improve customer retention and sales funnel visibility.
+            </p>
+
+            <div class="mt-auto">
+              <a href="#" class="case-study-link" data-bs-toggle="modal" data-bs-target="#saasModal">
+                Project Preview <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card-project project-bounce text-center">
+            <div class="project-tag">Power BI</div>
+            <h3 class="text-white fw-bold h4 mb-3">BCX Opportunity Wins</h3>
+            <p class="text-secondary small mb-4 card-text-uniform">
+              Dashboard analyzing trends in won vs lost opportunities for sales optimization.
+            </p>
+            <div class="nda-text">
+              <i class="bi bi-lock-fill me-2"></i> NDA Protected
+            </div>
+          </div>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="col-lg-4 col-md-6">
+          <div class="card-project project-bounce text-center">
+            <div class="project-tag">Power BI</div>
+            <h3 class="text-white fw-bold h4 mb-3">Eskom Energy Dashboard</h3>
+            <p class="text-secondary small mb-4 card-text-uniform">
+              Visualizing energy metrics and grid performance trends for stakeholder reporting.
+            </p>
+            <div class="mt-auto">
+              <a href="Dashboard.html" class="case-study-link" data-bs-toggle="modal" data-bs-target="#eskomModal">
+                Project Preview <i class="bi bi-arrow-right ms-2"></i>
+              </a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer class="site-footer section-padding position-relative" style="background-color:#000;">
+    <video autoplay muted loop playsinline
+      style="position: absolute; top:0; left:0; width:100%; height:100%; object-fit:cover; z-index:1;">
+      <source src="images/Main Page/12888892_1920_1080_30fps.mp4" type="video/mp4">
+
+    </video>
+    <div style="position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.85); z-index:2;">
+    </div>
+    <div class="container position-relative" style="z-index:3; color:#fff;">
+      <div class="row">
+        <div class="col-lg-4 col-12 mb-4 mb-lg-0">
+          <em class="d-block mb-2" style="color:#aaa;">Where to find Me?</em>
+          <strong><i class="bi-geo-alt me-2"></i> South Africa</strong>
+          <ul class="list-inline mt-3">
+            <li class="list-inline-item">
+              <a href="https://calendar.app.google/y3SxkCmhb1qhMNm19" target="_blank" class="bi-calendar-check"
+                style="color:#41ba09; font-size:1.2rem;"></a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="www.linkedin.com/in/edna-kobo" target="_blank" class="bi-linkedin"
+                style="color:#41ba09; font-size:1.2rem;"></a>
+            </li>
+
+            <li class="list-inline-item">
+              <a href="https://github.com/EdnaM06" target="_blank" class="bi-github"
+                style="color:#41ba09; font-size:1.2rem;"></a>
+            </li>
+          </ul>
+
+        </div>
+        <div class="col-lg-3 col-12 mb-4 mb-lg-0">
+          <em class="d-block mb-2" style="color:#aaa;">Book Free Consultation</em>
+          <p class="mb-1"><strong>Schedule:</strong> <a href="https://calendar.app.google/y3SxkCmhb1qhMNm19"
+              target="_blank" style="color:#41ba09;">Book Free</a></p>
+          <p class="mb-0"><strong>Email:</strong> <a href="mailto:ednamosima86@gmail.com"
+              style="color:#41ba09;">ednamosima86@gmail.com</a></p>
+        </div>
+        <div class="col-lg-5 col-12">
+          <em class="d-block mb-2" style="color:#aaa;">Working Hours</em>
+          <ul class="list-unstyled mb-0">
+            <li>Monday - Friday: <strong>9:00 - 17:00</strong></li>
+            <li>Saturday: <strong>Closed</strong></li>
+            <li>Sunday: <strong>Closed</strong></li>
+          </ul>
+        </div>
+        <div class="col-12 text-center mt-4">
+          <p class="mb-1" style="font-size:0.75rem;">&copy; 2026 Edna Kobo. All Rights Reserved.</p>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- SAAS BILLING & REVENUE ANALYTICS MODAL -->
+  <div class="modal fade" id="saasModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content dashboard-theme">
+
+        <!-- HEADER -->
+        <div class="modal-header border-0 p-4">
+          <div class="d-flex align-items-center">
+            <div class="p-2 rounded-3 me-3" style="background: rgba(65, 186, 9, 0.1); border: 1px solid #41ba09;">
+              <i class="bi bi-graph-up-arrow text-success"></i>
+            </div>
+
+            <div>
+              <h5 class="modal-title text-white fw-bold mb-0">
+                SaaS Billing & Revenue Analytics
+              </h5>
+              <small class="text-secondary text-uppercase fw-bold" style="font-size: 0.65rem; letter-spacing: 1px;">
+                Subscription Performance & Churn Analysis
+              </small>
+            </div>
+          </div>
+
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <!-- BODY -->
+        <div class="modal-body p-4 pt-0">
+
+          <!-- KPI ROW -->
+          <div class="row g-3 mb-4">
+
+            <div class="col-md-4">
+              <div class="kpi-card">
+                <div class="kpi-icon">
+                  <i class="bi bi-currency-dollar"></i>
+                </div>
+                <div>
+                  <p class="kpi-label mb-0">Revenue Impact</p>
+                  <h4 class="kpi-value">-</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="kpi-card">
+                <div class="kpi-icon" style="color:#3b82f6;">
+                  <i class="bi bi-arrow-repeat"></i>
+                </div>
+                <div>
+                  <p class="kpi-label mb-0">Churn Reduction</p>
+                  <h4 class="kpi-value">-</h4>
+                </div>
+              </div>
+            </div>
+
+            <div class="col-md-4">
+              <div class="kpi-card">
+                <div class="kpi-icon" style="color:#f59e0b;">
+                  <i class="bi bi-check-circle"></i>
+                </div>
+                <div>
+                  <p class="kpi-label mb-0">Closed Won Rate</p>
+                  <h4 class="kpi-value">-</h4>
+                </div>
+              </div>
+            </div>
+
+          </div>
+
+          <!-- INSIGHT VISUAL -->
+          <div class="mb-5">
+            <h6 class="text-white border-start border-success border-4 ps-3 mb-3 fw-bold">
+              Revenue & Opportunity Funnel Analysis
+            </h6>
+
+            <div class="rounded-4 overflow-hidden border border-secondary border-opacity-25">
+              <img src="images/saas-dashboard-1.png" class="w-100" alt="SaaS Funnel Analysis">
+            </div>
+          </div>
+
+          <!-- SECOND VISUAL -->
+          <div class="mb-4">
+            <h6 class="text-white border-start border-primary border-4 ps-3 mb-3 fw-bold">
+              Billing, Usage & Customer Retention Trends
+            </h6>
+
+            <div class="rounded-4 overflow-hidden border border-secondary border-opacity-25 bg-white p-2">
+              <img src="images/saas-dashboard-2.png" class="w-100" alt="SaaS Metrics Dashboard">
+            </div>
+          </div>
+
+        </div>
+
+        <!-- FOOTER -->
+        <div class="dashboard-footer d-flex justify-content-between align-items-center">
+
+          <div class="d-flex align-items-center text-secondary small">
+            <span class="status-dot"></span> Analytical Model
+            <span class="mx-3">|</span>
+            <i class="bi bi-bar-chart-line me-1"></i> Last Updated: Current Project
+          </div>
+
+          <div>
+            <button type="button" class="btn btn-dismiss-green" data-bs-dismiss="modal">
+              Dismiss
+            </button>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <div class="modal fade" id="eskomModal" tabindex="-1" aria-hidden="true">
+    <div class="modal-dialog modal-xl modal-dialog-centered">
+      <div class="modal-content dashboard-theme">
+
+        <div class="modal-header border-0 p-4">
+          <div class="d-flex align-items-center">
+            <div class="p-2 rounded-3 me-3" style="background: rgba(16, 185, 129, 0.1); border: 1px solid #10b981;">
+              <i class="bi bi-bar-chart-fill text-success"></i>
+            </div>
+            <div>
+              <h5 class="modal-title text-white fw-bold mb-0">Eskom Energy Dashboard</h5>
+              <small class="text-secondary text-uppercase fw-bold"
+                style="font-size: 0.65rem; letter-spacing: 1px;">Real-Time Infrastructure Monitoring</small>
+            </div>
+          </div>
+          <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+        </div>
+
+        <div class="modal-body p-4 pt-0">
+          <div class="row g-3 mb-4">
+            <div class="col-md-4">
+              <div class="kpi-card">
+                <div class="kpi-icon"><i class="bi bi-lightning-charge-fill"></i></div>
+                <div>
+                  <p class="kpi-label mb-0">Current Demand</p>
+                  <h4 class="kpi-value">28,450 MW</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="kpi-card">
+                <div class="kpi-icon" style="color: #3b82f6;"><i class="bi bi-building"></i></div>
+                <div>
+                  <p class="kpi-label mb-0">OCGT Usage</p>
+                  <h4 class="kpi-value">1,200 MW</h4>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-4">
+              <div class="kpi-card">
+                <div class="kpi-icon" style="color: #f59e0b;"><i class="bi bi-exclamation-triangle"></i></div>
+                <div>
+                  <p class="kpi-label mb-0">System Status</p>
+                  <h4 class="kpi-value">Stage 0</h4>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-5">
+            <h6 class="text-white border-start border-success border-4 ps-3 mb-3 fw-bold">National Infrastructure
+              Visualization</h6>
+            <div class="rounded-4 overflow-hidden border border-secondary border-opacity-25">
+              <img src="images/Screenshot 2024-09-20 111904.png" class="w-100" alt="Grid Map">
+            </div>
+          </div>
+
+          <div class="mb-4">
+            <h6 class="text-white border-start border-primary border-4 ps-3 mb-3 fw-bold">Capacity & Efficiency
+              Analytics</h6>
+            <div class="rounded-4 overflow-hidden border border-secondary border-opacity-25 bg-white p-2">
+              <img src="images/Screenshot 2024-09-20 111930.png" class="w-100" alt="Capacity Charts">
+            </div>
+          </div>
+        </div>
+
+        <div class="dashboard-footer d-flex justify-content-between align-items-center">
+          <div class="d-flex align-items-center text-secondary small">
+            <span class="status-dot"></span> Live Server
+            <span class="mx-3">|</span>
+            <i class="bi bi-arrow-clockwise me-1"></i> Last Update: 14:20 PM
+          </div>
+          <div>
+            <div>
+              <button type="button" class="btn btn-dismiss-green" data-bs-dismiss="modal">
+                Dismiss
+              </button>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </div>
+  </div>
+
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const navbarCollapse = document.getElementById('navbarNav');
+
+      // Close only when a nav-link is clicked (delegated)
+      navbarCollapse.addEventListener('click', function (e) {
+        // If a direct nav link was clicked (or inner element), find nearest .nav-link
+        const link = e.target.closest('.nav-link');
+        if (!link) return;
+
+        // If collapsed is open, hide it
+        if (navbarCollapse.classList.contains('show')) {
+          const bsCollapse = bootstrap.Collapse.getOrCreateInstance(navbarCollapse);
+          bsCollapse.hide();
+        }
+      });
+    });
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+      const swiper = new Swiper('.mySwiper', {
+        slidesPerView: 1,
+        spaceBetween: 30,
+        loop: true,
+        grabCursor: true,
+
+        autoplay: {
+          delay: 2500,
+          disableOnInteraction: false,
+        },
+
+        pagination: {
+          el: ".swiper-pagination",
+          clickable: true,
+        },
+
+        breakpoints: {
+          768: {
+            slidesPerView: 2
+          },
+          1200: {
+            slidesPerView: 3
+          }
+        }
+      });
+    });
+  </script>
+</body>
+
+</html>
